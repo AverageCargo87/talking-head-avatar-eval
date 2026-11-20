@@ -1,0 +1,396 @@
+{
+ "measured_on": "2026-11-20",
+ "tool": "avatar_metrics",
+ "real": [
+  {
+   "label": "InfiniteTalk, Lena 9 s",
+   "kind": "real",
+   "file": "samples/infinitetalk/lena-9s.mp4",
+   "face_box": [
+    215,
+    128,
+    204,
+    204
+   ],
+   "liveness": {
+    "mouth": 10.218,
+    "upper": 11.064,
+    "ratio": 1.083,
+    "coupling": 0.883
+   },
+   "offset": {
+    "lag_frames": -1,
+    "lag_ms": -40,
+    "r_best": 0.361,
+    "r_at_zero": 0.34,
+    "peak_margin": 0.096,
+    "verdict": "in sync (within one frame)"
+   },
+   "motion": 1.71
+  },
+  {
+   "label": "InfiniteTalk, Artem 12 s",
+   "kind": "real",
+   "file": "samples/infinitetalk/artem-12s.mp4",
+   "face_box": [
+    206,
+    120,
+    230,
+    230
+   ],
+   "liveness": {
+    "mouth": 9.462,
+    "upper": 9.309,
+    "ratio": 0.984,
+    "coupling": 0.906
+   },
+   "offset": {
+    "lag_frames": 8,
+    "lag_ms": 320,
+    "r_best": 0.223,
+    "r_at_zero": 0.144,
+    "peak_margin": 0.008,
+    "verdict": "no clear peak: the correlation curve is flat, offset unreliable (cross-check with SyncNet)"
+   },
+   "motion": 1.71
+  },
+  {
+   "label": "InfiniteTalk, two hosts 17 s: Lena (left)",
+   "kind": "real",
+   "file": "samples/infinitetalk/two-hosts-17s.mp4",
+   "face_box": [
+    165,
+    98,
+    151,
+    151
+   ],
+   "liveness": {
+    "mouth": 6.352,
+    "upper": 7.695,
+    "ratio": 1.211,
+    "coupling": 0.944
+   },
+   "offset": {
+    "lag_frames": 2,
+    "lag_ms": 80,
+    "r_best": -0.034,
+    "r_at_zero": -0.061,
+    "peak_margin": 0.056,
+    "verdict": "no link: lips do not follow the speech; shifting the track will not fix it"
+   },
+   "motion": 0.87
+  },
+  {
+   "label": "InfiniteTalk, two hosts 17 s: Artem (right)",
+   "kind": "real",
+   "file": "samples/infinitetalk/two-hosts-17s.mp4",
+   "face_box": [
+    538,
+    121,
+    158,
+    158
+   ],
+   "liveness": {
+    "mouth": 6.339,
+    "upper": 7.158,
+    "ratio": 1.129,
+    "coupling": 0.921
+   },
+   "offset": {
+    "lag_frames": -18,
+    "lag_ms": -720,
+    "r_best": 0.002,
+    "r_at_zero": -0.06,
+    "peak_margin": 0.037,
+    "verdict": "no link: lips do not follow the speech; shifting the track will not fix it"
+   },
+   "motion": 0.87
+  },
+  {
+   "label": "InfiniteTalk, Lena 30 s, audio as rendered",
+   "kind": "real",
+   "file": "samples/infinitetalk/lena-30s-audio-as-rendered.mp4",
+   "face_box": [
+    214,
+    127,
+    206,
+    206
+   ],
+   "liveness": {
+    "mouth": 10.959,
+    "upper": 11.552,
+    "ratio": 1.054,
+    "coupling": 0.91
+   },
+   "offset": {
+    "lag_frames": -1,
+    "lag_ms": -40,
+    "r_best": 0.275,
+    "r_at_zero": 0.255,
+    "peak_margin": 0.108,
+    "verdict": "in sync (within one frame)"
+   },
+   "motion": 2.21
+  },
+  {
+   "label": "InfiniteTalk, Lena 30 s, audio 80 ms earlier",
+   "kind": "real",
+   "file": "samples/infinitetalk/lena-30s-audio-80ms-earlier.mp4",
+   "face_box": [
+    214,
+    127,
+    206,
+    206
+   ],
+   "liveness": {
+    "mouth": 10.959,
+    "upper": 11.552,
+    "ratio": 1.054,
+    "coupling": 0.91
+   },
+   "offset": {
+    "lag_frames": 1,
+    "lag_ms": 40,
+    "r_best": 0.277,
+    "r_at_zero": 0.248,
+    "peak_margin": 0.107,
+    "verdict": "in sync (within one frame)"
+   },
+   "motion": 2.21
+  },
+  {
+   "label": "Control: still portrait + audio",
+   "kind": "real",
+   "file": "samples/controls/lena-9s-still.mp4",
+   "face_box": [
+    214,
+    127,
+    206,
+    206
+   ],
+   "liveness": {
+    "mouth": 0.005,
+    "upper": 0.005,
+    "ratio": 0.0,
+    "coupling": 0.0
+   },
+   "offset": {
+    "lag_frames": 0,
+    "lag_ms": 0,
+    "r_best": 0.0,
+    "r_at_zero": 0.0,
+    "peak_margin": 0.0,
+    "verdict": "mouth does not move: nothing to synchronise"
+   },
+   "motion": 0.0
+  },
+  {
+   "label": "Control: still portrait + breathing zoom + audio",
+   "kind": "real",
+   "file": "samples/controls/lena-9s-zoom.mp4",
+   "face_box": [
+    215,
+    128,
+    206,
+    206
+   ],
+   "liveness": {
+    "mouth": 0.724,
+    "upper": 0.68,
+    "ratio": 0.939,
+    "coupling": 0.999
+   },
+   "offset": {
+    "lag_frames": 20,
+    "lag_ms": 800,
+    "r_best": -0.075,
+    "r_at_zero": -0.162,
+    "peak_margin": 0.012,
+    "verdict": "no link: lips do not follow the speech; shifting the track will not fix it"
+   },
+   "motion": 0.24
+  }
+ ],
+ "synthetic": [
+  {
+   "label": "Synthetic: still face + audio",
+   "kind": "synthetic",
+   "file": "still.mp4",
+   "face_box": [
+    102,
+    94,
+    156,
+    184
+   ],
+   "liveness": {
+    "mouth": 0.0,
+    "upper": 0.0,
+    "ratio": 0.0,
+    "coupling": 0.0
+   },
+   "offset": {
+    "lag_frames": 0,
+    "lag_ms": 0,
+    "r_best": 0.0,
+    "r_at_zero": 0.0,
+    "peak_margin": 0.0,
+    "verdict": "mouth does not move: nothing to synchronise"
+   },
+   "motion": 0.0,
+   "truth": {
+    "kind": "still",
+    "delay_frames": 0
+   }
+  },
+  {
+   "label": "Synthetic: mouth patch on a static base",
+   "kind": "synthetic",
+   "file": "static-patch.mp4",
+   "face_box": [
+    102,
+    94,
+    156,
+    184
+   ],
+   "liveness": {
+    "mouth": 3.824,
+    "upper": 0.0,
+    "ratio": 0.0,
+    "coupling": 0.015
+   },
+   "offset": {
+    "lag_frames": 0,
+    "lag_ms": 0,
+    "r_best": 0.971,
+    "r_at_zero": 0.971,
+    "peak_margin": 0.784,
+    "verdict": "in sync (within one frame)"
+   },
+   "motion": 0.3,
+   "truth": {
+    "kind": "static_patch",
+    "delay_frames": 0
+   }
+  },
+  {
+   "label": "Synthetic: mouth patch on a looped base",
+   "kind": "synthetic",
+   "file": "loop-patch.mp4",
+   "face_box": [
+    102,
+    94,
+    156,
+    184
+   ],
+   "liveness": {
+    "mouth": 3.984,
+    "upper": 0.554,
+    "ratio": 0.139,
+    "coupling": 0.025
+   },
+   "offset": {
+    "lag_frames": 0,
+    "lag_ms": 0,
+    "r_best": 0.972,
+    "r_at_zero": 0.972,
+    "peak_margin": 0.78,
+    "verdict": "in sync (within one frame)"
+   },
+   "motion": 0.36,
+   "truth": {
+    "kind": "loop_patch",
+    "delay_frames": 0
+   }
+  },
+  {
+   "label": "Synthetic: whole face driven by speech",
+   "kind": "synthetic",
+   "file": "coupled.mp4",
+   "face_box": [
+    102,
+    94,
+    156,
+    184
+   ],
+   "liveness": {
+    "mouth": 5.408,
+    "upper": 2.69,
+    "ratio": 0.497,
+    "coupling": 0.869
+   },
+   "offset": {
+    "lag_frames": 0,
+    "lag_ms": 0,
+    "r_best": 0.944,
+    "r_at_zero": 0.944,
+    "peak_margin": 0.765,
+    "verdict": "in sync (within one frame)"
+   },
+   "motion": 0.66,
+   "truth": {
+    "kind": "coupled",
+    "delay_frames": 0
+   }
+  },
+  {
+   "label": "Synthetic: whole face, picture 3 frames late",
+   "kind": "synthetic",
+   "file": "coupled-lag3.mp4",
+   "face_box": [
+    102,
+    94,
+    156,
+    184
+   ],
+   "liveness": {
+    "mouth": 5.403,
+    "upper": 2.707,
+    "ratio": 0.501,
+    "coupling": 0.839
+   },
+   "offset": {
+    "lag_frames": 3,
+    "lag_ms": 120,
+    "r_best": 0.941,
+    "r_at_zero": 0.019,
+    "peak_margin": 0.748,
+    "verdict": "picture LAGS the sound by 120 ms; fix by shifting the audio track"
+   },
+   "motion": 0.66,
+   "truth": {
+    "kind": "coupled",
+    "delay_frames": 3
+   }
+  },
+  {
+   "label": "Synthetic: whole face, picture 2 frames early",
+   "kind": "synthetic",
+   "file": "coupled-lead2.mp4",
+   "face_box": [
+    102,
+    94,
+    156,
+    184
+   ],
+   "liveness": {
+    "mouth": 5.404,
+    "upper": 2.678,
+    "ratio": 0.495,
+    "coupling": 0.856
+   },
+   "offset": {
+    "lag_frames": -2,
+    "lag_ms": -80,
+    "r_best": 0.942,
+    "r_at_zero": 0.053,
+    "peak_margin": 0.771,
+    "verdict": "picture LEADS the sound by 80 ms; fix by shifting the audio track"
+   },
+   "motion": 0.66,
+   "truth": {
+    "kind": "coupled",
+    "delay_frames": -2
+   }
+  }
+ ]
+}

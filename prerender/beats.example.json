@@ -1,0 +1,9 @@
+{
+ "note": "Opening lines of a history lesson read by its two hosts. Russian, written for the lesson; they pass the 8-word overlap check against the textbook corpora (tools/overlap_check.py).",
+ "beats": [
+  {"say": "Привет! Я Лена.", "kind": "host"},
+  {"say": "А я Артём. Сегодня мы разговариваем втроём: Лена, я и ты. Иногда мы будем останавливаться и спрашивать тебя.", "kind": "host"},
+  {"say": "И отправляемся очень далеко в прошлое. Туда, где ещё нет ни городов, ни письменности.", "kind": "host"},
+  {"say": "Тема урока: древнейшие люди. А главный вопрос такой: в чём отличие древнейшего человека от обезьяны?", "kind": "host"}
+ ]
+}

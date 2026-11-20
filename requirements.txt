@@ -1,0 +1,6 @@
+# Exact versions the results in results/ were measured with (Python 3.14, Windows 11).
+numpy==2.5.5
+opencv-python-headless==4.14.0.94
+# tests and the chart
+pytest==9.2.0
+matplotlib==3.11.2

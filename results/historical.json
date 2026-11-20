@@ -1,0 +1,65 @@
+{
+ "note": "Numbers copied from the project's working notes (July-November 2026). They were measured on vendor and test clips that are NOT published here (third-party stock faces, vendor output). Same metric code as avatar_metrics, earlier revision.",
+ "liveness": {
+  "source": "project notes, avatar session 2026-08-19 (results table of face-liveness)",
+  "rows": [
+   {"label": "Local lip-sync on a still photo (LatentSync 1.5)", "class": "patch", "mouth": 1.06, "upper": 0.01, "ratio": 0.01, "coupling": 0.25},
+   {"label": "bitHuman Essence 1, take 1", "class": "patch", "mouth": 2.12, "upper": 1.14, "ratio": 0.54, "coupling": 0.61},
+   {"label": "bitHuman Essence 1, take 2", "class": "patch", "mouth": 2.35, "upper": 1.25, "ratio": 0.53, "coupling": 0.38},
+   {"label": "Anam, stock avatar, cara-4", "class": "whole-face", "mouth": 4.66, "upper": 5.06, "ratio": 1.09, "coupling": 0.89},
+   {"label": "Wan 2.7 (cloud) on the project's own portrait", "class": "whole-face", "mouth": 5.98, "upper": 8.06, "ratio": 1.35, "coupling": 0.91}
+  ],
+  "headline": "Anam upper-face motion 5.06 vs bitHuman 1.14 and 1.25: about 4x more, and coupled to speech"
+ },
+ "identity_seam": {
+  "source": "project notes, avatar lip-sync session 2026-08-04/05 (face-identity results)",
+  "switch": [
+   {"between": "local engine <-> local engine", "seam": 0.942},
+   {"between": "cloud engine <-> local engine", "seam_min": 0.815, "seam_max": 0.855}
+  ],
+  "to_source_portrait": [
+   {"clip": "local lip-sync, static base", "similarity": 0.877, "spread": 0.017},
+   {"clip": "local lip-sync, live base", "similarity": 0.828, "spread": 0.056},
+   {"clip": "cloud Wan 2.7", "similarity": 0.775, "spread": 0.053, "worst_frame": 0.729}
+  ],
+  "rule": "prerender and live must run on ONE engine"
+ },
+ "lipsync_offset": {
+  "source": "project notes, avatar lip-sync session 2026-08-04/05 (lipsync-offset results)",
+  "rows": [
+   {"clip": "cloud render", "finding": "systematic +233 ms, picture late; fixed with an audio delay of 233 ms, then 0 ms at correlation 0.240"},
+   {"clip": "local lip-sync on a live base", "finding": ">= 800 ms; cause: the base clip's jaw and cheeks keep moving to someone else's speech (own lip motion 1.10 vs residual base motion 4.32)"},
+   {"clip": "local lip-sync on a still portrait", "finding": "+1 frame: the lip-sync itself is accurate"}
+  ],
+  "ceiling": "0.24 was the best correlation on a clip known to be in sync, so the metric's threshold is relative, not absolute"
+ },
+ "infinitetalk": {
+  "source": "project notes, local talking heads 2026-11-19/20; local/comfy_infinitetalk.py comment",
+  "syncnet": "SyncNet offset -2 frames (audio 80 ms behind the lips) on both 30 s hosts; with the audio 0.08 s earlier the offset is 0 and the confidence on one host went 7.68 -> 7.78",
+  "motion": "calm-presenter prompt lowered frame motion 2.25 -> 1.74; with audio_scale 0.75 -> 1.67",
+  "timing_rtx3060_12gb": {
+   "single_host_30s_minutes": 65,
+   "two_hosts_58s_hours": 2.6,
+   "two_hosts_17s_minutes": 48,
+   "single_host_10s_minutes": "19-25",
+   "seconds_per_step_sdpa": 90,
+   "seconds_per_step_sageattention": 57,
+   "seconds_per_step_sageattention_two_hosts": 76,
+   "steps_with_lightx2v_lora": 6
+  }
+ },
+ "latentsync": {
+  "source": "prerender/lipsync_run.py and prerender/lipsync_batch.py headers (measured 2026-08-04)",
+  "speech_seconds": 3.84,
+  "frames": 96,
+  "v16_512_seconds": 875,
+  "v15_256_seconds": 75,
+  "v16_vram_gb": 18,
+  "v15_vram_gb": 8,
+  "gpu_vram_gb": 12,
+  "model_load_seconds": 37,
+  "seconds_per_diffusion_step": 1.9,
+  "beats": 70,
+  "reload_waste_minutes": 43
+ }
+}

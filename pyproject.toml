@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "avatar-metrics"
+version = "0.1.0"
+description = "Measure talking-head avatar video: face liveness, lip-sync A/V offset, identity seam, frame motion"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Grigorii Kim" }]
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.26",
+  "opencv-python-headless>=4.8,<5",   # OpenCV 5 dropped the Haar CascadeClassifier
+]
+
+[project.optional-dependencies]
+identity = ["insightface>=0.7", "onnxruntime>=1.17"]
+dev = ["pytest>=8", "matplotlib>=3.8"]
+
+[project.scripts]
+avatar-metrics = "avatar_metrics.cli:main"
+
+[tool.setuptools]
+packages = ["avatar_metrics"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

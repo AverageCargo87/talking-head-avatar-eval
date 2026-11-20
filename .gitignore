@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# Node
+node_modules/
+
+# outputs of the demo commands
+out/
+
+# large finished media, uploaded as GitHub release assets (see docs/RELEASE_ASSETS.md)
+release-assets/
+
+# secrets
+.env
+.env.*
+!.env.example

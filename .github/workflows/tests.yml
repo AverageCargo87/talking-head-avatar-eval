@@ -1,0 +1,27 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg
+      - name: Python dependencies
+        run: pip install "numpy>=1.26" "opencv-python-headless>=4.8,<5" pytest matplotlib
+      - name: Python tests (synthetic videos, mock runner contract, graph builder)
+        run: python -m pytest -q
+      - name: Node tests (clip cache, prerender pipeline, mock runner)
+        run: npm test
+      - name: Re-measure the committed samples
+        run: python scripts/measure_samples.py
