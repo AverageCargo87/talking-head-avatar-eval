@@ -31,15 +31,25 @@ def probe(url: str, timeout: float = 10.0) -> dict:
     res = {"url": url, "dns_s": None, "tcp_s": None, "tls_s": None, "status": None, "error": None}
     t0 = time.monotonic()
     try:
-        addr = socket.getaddrinfo(host, port, type=socket.SOCK_STREAM)[0][4]
+        addrs = [ai[4] for ai in socket.getaddrinfo(host, port, type=socket.SOCK_STREAM)]
         res["dns_s"] = round(time.monotonic() - t0, 3)
     except OSError as e:
         res["error"] = f"dns: {e.__class__.__name__}"
         return res
     try:
-        t1 = time.monotonic()
-        sock = socket.create_connection(addr[:2], timeout=timeout)
-        res["tcp_s"] = round(time.monotonic() - t1, 3)
+        # Try every resolved address in order, as browsers do: a host whose first
+        # record is an unreachable IPv6 address is still open over IPv4.
+        sock, last = None, None
+        for addr in addrs:
+            t1 = time.monotonic()
+            try:
+                sock = socket.create_connection(addr[:2], timeout=timeout)
+                res["tcp_s"] = round(time.monotonic() - t1, 3)
+                break
+            except OSError as e:
+                last = e
+        if sock is None:
+            raise last
         if u.scheme == "https":
             t2 = time.monotonic()
             sock = ssl.create_default_context().wrap_socket(sock, server_hostname=host)

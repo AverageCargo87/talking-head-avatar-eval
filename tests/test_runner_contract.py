@@ -20,7 +20,7 @@ def wait_port(port, timeout=10.0):
     end = time.time() + timeout
     while time.time() < end:
         with socket.socket() as s:
-            if s.connect_ex(("localhost", port)) == 0:
+            if s.connect_ex(("127.0.0.1", port)) == 0:
                 return True
         time.sleep(0.1)
     return False
@@ -28,12 +28,12 @@ def wait_port(port, timeout=10.0):
 
 @pytest.mark.skipif(shutil.which("node") is None, reason="node not on PATH")
 def test_mock_runner_passes_the_contract():
-    env = dict(os.environ, MOCK_PORT=str(PORT), MOCK_HOST="localhost")
+    env = dict(os.environ, MOCK_PORT=str(PORT), MOCK_HOST="127.0.0.1")
     proc = subprocess.Popen(["node", os.path.join(ROOT, "runner", "mock-runner.mjs")], env=env,
                             stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     try:
         assert wait_port(PORT), "mock runner did not start"
-        results = check(f"http://localhost:{PORT}")
+        results = check(f"http://127.0.0.1:{PORT}")
         failed = [(name, detail) for name, ok, detail in results if not ok]
         assert not failed, failed
         assert len(results) == 7
